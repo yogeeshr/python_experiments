@@ -1,9 +1,12 @@
 # Imports
 import matplotlib
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 from pylab import *
 import pandas as pd
 import numpy as np
+
+from pandas.tools.plotting import table
 
 df = pd.read_csv("population_data.csv")
 
@@ -28,3 +31,12 @@ my_plot.set_ylabel('Population')
 plt.tight_layout()
 fig = my_plot.get_figure()
 fig.savefig("geneder_population_compare.png")
+
+# Pie chart - Density Graph
+plt.subplots()
+plt.pie(df['Density_per_km2'], pctdistance=.8, labels=df['State'], autopct='%1.1f%%',
+        shadow=False, startangle=90)
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.title("Density Per Km2 Pie")
+plt.tight_layout()
+plt.savefig("Density_KM2.png")

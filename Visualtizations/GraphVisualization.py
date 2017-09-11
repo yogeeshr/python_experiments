@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from pylab import *
 import pandas as pd
 import numpy as np
+import os
 
 from pandas.tools.plotting import table
 
@@ -30,7 +31,7 @@ my_plot.set_ylabel('State(s)')
 my_plot.set_ylabel('Population')
 plt.tight_layout()
 fig = my_plot.get_figure()
-fig.savefig("geneder_population_compare.png")
+fig.savefig("gender_population_compare.png")
 
 # Pie chart - Density Graph
 plt.subplots()
@@ -40,3 +41,10 @@ plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 plt.title("Density Per Km2 Pie")
 plt.tight_layout()
 plt.savefig("Density_KM2.png")
+
+#HTML of Pivot Data
+population_html=pivot_data.to_html(justify='left').replace('<th>','<th style = "background-color: lightgrey; padding:3px; text-align:center;">')
+
+text_file = open("population.html", "w")
+text_file.write("%s" % population_html)
+text_file.close()

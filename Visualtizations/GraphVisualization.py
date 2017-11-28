@@ -17,7 +17,7 @@ print list_of_column
 
 # Population Graph graph
 pivot_data = pd.pivot_table(df, index=["State"], values=["Population_2011"], aggfunc=np.sum)
-my_plot = pivot_data.plot(kind='line', color='tab:brown', grid=True, marker='.', markersize=15, linewidth=2, title='Population Data')
+my_plot = pivot_data.plot(kind='line', color='brown', grid=True, marker='.', markersize=15, linewidth=2, title='Population Data')
 my_plot.set_ylabel('State(s)')
 my_plot.set_ylabel('Population')
 plt.tight_layout()

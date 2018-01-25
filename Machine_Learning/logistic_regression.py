@@ -15,8 +15,11 @@ df = pd.read_csv("data.csv")
 # Color code being set
 sns.set(color_codes=True)
 
-# Plot graph of linear regression
-plot=sns.lmplot(x='x',y='y',data=df, fit_reg=True)
+# Plot graph of logistic regression
+plot=sns.regplot(x="x", y="y", data=df)
+
+
+fig=plot.get_figure()
 
 # Save figure
-plot.savefig("linear_regression.png")
+fig.savefig("logistic_regression.png")

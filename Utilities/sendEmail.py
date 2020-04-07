@@ -10,7 +10,7 @@ msg = MIMEMultipart()
 
 # HTML Content mail
 filename = "../Visualtizations/population.html"
-f = file(filename)
+f = open(filename)
 attachment = MIMEText(f.read(),'html')
 msg.attach(attachment)
 
@@ -37,7 +37,7 @@ msg['Cc'] = "yogeesh.srkvs@gmail.com"
 server = smtplib.SMTP('smtp.gmail.com:587')
 server.ehlo()
 server.starttls()
-server.login("yogeesh.srkvs@gmail.com","<2 step verified app code / password>")
-print "Mailing . . ."
+server.login("yogeesh.srkvs@gmail.com", "<2 Step app specific passsword>")
+print("Mailing . . .")
 server.sendmail(msg['From'], msg['To'], msg.as_string())
 server.quit()
